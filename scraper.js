@@ -15,14 +15,12 @@ async function scrapeInstagram(perfil) {
 
     console.log(`\n Navegando al perfil de: ${perfil}...`);
 
-    // CAMBIO: Usamos 'domcontentloaded' que es más rápido y menos propenso a errores de timeout
     await page.goto(`https://www.instagram.com/${perfil}/`, {
       waitUntil: 'domcontentloaded',
-      timeout: 60000 // Aumentamos a 60 segundos por si el internet está lento
+      timeout: 60000 // Aumentamos a 60 segundos de espera
     });
 
     console.log(" Esperando que aparezcan los elementos...");
-    // Esperamos a que al menos un post o la cabecera sea visible
     await page.waitForSelector('header', { timeout: 10000 }).catch(() => console.log("Aviso: La cabecera tardó mucho, intentando seguir..."));
 
     await page.waitForTimeout(5000);

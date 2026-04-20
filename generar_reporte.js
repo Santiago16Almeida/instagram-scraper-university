@@ -2,7 +2,7 @@ const fs = require('fs');
 
 function generarHTML() {
     try {
-        // 1. Leer el JSON completo
+        // Lee el JSON completo
         const rawData = fs.readFileSync('datos_instagram.json');
         const data = JSON.parse(rawData);
 
@@ -10,7 +10,7 @@ function generarHTML() {
         const info = data.infoPerfil;
         const posts = data.posts;
 
-        // 2. Crear la estructura del HTML con la cabecera de estadísticas
+        // Estructura del HTML con la cabecera de estadísticas
         let htmlContent = `
         <!DOCTYPE html>
         <html lang="es">
@@ -57,7 +57,7 @@ function generarHTML() {
             <div class="container">
         `;
 
-        // 3. Generar las tarjetas
+        // Generar las tarjetas
         posts.forEach(post => {
             htmlContent += `
                 <div class="card">
