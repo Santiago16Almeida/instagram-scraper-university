@@ -1,22 +1,25 @@
 const { chromium } = require('playwright');
 
 async function saveSession() {
-  const browser = await chromium.launch({ headless: false }); // Visible para que puedas loguearte
-  const context = await browser.new_context();
+  // Lanzamos el navegador
+  const browser = await chromium.launch({ headless: false }); 
+  
+  // CORRECCIÓN: Es newContext() (CamelCase), no new_context
+  const context = await browser.newContext();
   const page = await context.newPage();
 
   await page.goto('https://www.instagram.com/accounts/login/');
   
-  console.log("INICIA SESIÓN MANUALLY EN EL NAVEGADOR...");
+  console.log("POR FAVOR, INICIA SESIÓN MANUALMENTE...");
   
-  // Esperamos hasta que el navegador detecte que entraste al feed principal
+  // Esperamos a que entres al feed para confirmar el login
   await page.waitForURL('https://www.instagram.com/', { timeout: 0 });
   
-  // Guardamos las cookies y el almacenamiento local
+  // Guardamos el estado
   await context.storageState({ path: 'state.json' });
   
-  console.log("Sesión guardada en state.json");
+  console.log("Sesión guardada con éxito en state.json");
   await browser.close();
 }
 
-saveSession();
+saveSession().catch(err => console.error("Error detallado:", err));
