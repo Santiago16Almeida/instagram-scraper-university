@@ -18,19 +18,19 @@ async function scrapeInstagram(perfil) {
     await page.waitForTimeout(2000);
 
     const data = await page.evaluate(() => {
-      // Buscamos todas las imágenes. Filtramos las que son muy pequeñas (iconos)
-      const imgs = Array.from(document.querySelectorAll('img'));
+      // Buscamos los contenedores de los posts primero
+      const images = Array.from(document.querySelectorAll('img'));
       
-      // Filtramos imágenes que probablemente son posts (suelen tener alt o dimensiones grandes)
-      const posts = imgs.filter(img => {
-        const src = img.getAttribute('src') || '';
-        return src.includes('scontent') && !src.includes('150x150'); // Filtra miniaturas de perfil
+      const posts = images.filter(img => {
+        const src = img.src || '';
+        // Buscamos el servidor de fotos de Instagram
+        return (src.includes('fbcdn.net') || src.includes('instagram')) && img.width > 150;
       }).slice(0, 10);
 
       return posts.map((img, index) => ({
         post_nro: index + 1,
-        descripcion: img.getAttribute('alt') || "Publicación de Instagram",
-        link_foto: img.getAttribute('src')
+        descripcion: img.alt || "Post de Instagram",
+        link_foto: img.src
       }));
     });
 
