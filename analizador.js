@@ -3,7 +3,8 @@ const fs = require('fs');
 function analizarPalabras() {
     try {
         const rawData = fs.readFileSync('datos_instagram.json');
-        const posts = JSON.parse(rawData);
+        const jsonCompleto = JSON.parse(rawData);
+        const posts = jsonCompleto.posts;
 
         // 1. Unir todas las descripciones en un solo texto gigante
         let textoTotal = posts.map(p => p.descripcion).join(' ').toLowerCase();
