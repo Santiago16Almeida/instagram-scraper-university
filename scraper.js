@@ -49,4 +49,5 @@ async function scrapeInstagram(perfil) {
   }
 }
 
-scrapeInstagram('natgeo');
+const cuentaAInvestigar = process.argv[2];
+scrapeInstagram(cuentaAInvestigar);
