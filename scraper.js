@@ -8,44 +8,44 @@ async function scrapeInstagram(perfil) {
 
   try {
     console.log(`Navegando al perfil de: ${perfil}...`);
-    
-    // Cambiamos 'networkidle' por 'domcontentloaded' (es mucho más rápido)
-    await page.goto(`https://www.instagram.com/${perfil}/`, { 
-        waitUntil: 'domcontentloaded',
-        timeout: 60000 
-    });
+    await page.goto(`https://www.instagram.com/${perfil}/`, { waitUntil: 'domcontentloaded' });
 
-    console.log("Esperando a que aparezcan las fotos...");
-    
-    // Esperamos a que aparezca cualquier imagen dentro de un artículo
-    // Le damos 15 segundos para encontrar al menos una
-    await page.waitForSelector('article img', { timeout: 15000 });
+    console.log("Esperando 5 segundos para que cargue el contenido dinámico...");
+    await page.waitForTimeout(5000); // Espera manual de seguridad
+
+    // Bajamos un poquito el scroll para forzar la carga de imágenes
+    await page.mouse.wheel(0, 500);
+    await page.waitForTimeout(2000);
 
     const data = await page.evaluate(() => {
-      const posts = Array.from(document.querySelectorAll('article img')).slice(0, 10);
+      // Buscamos todas las imágenes. Filtramos las que son muy pequeñas (iconos)
+      const imgs = Array.from(document.querySelectorAll('img'));
+      
+      // Filtramos imágenes que probablemente son posts (suelen tener alt o dimensiones grandes)
+      const posts = imgs.filter(img => {
+        const src = img.getAttribute('src') || '';
+        return src.includes('scontent') && !src.includes('150x150'); // Filtra miniaturas de perfil
+      }).slice(0, 10);
+
       return posts.map((img, index) => ({
         post_nro: index + 1,
-        descripcion: img.getAttribute('alt') || "Sin descripción",
+        descripcion: img.getAttribute('alt') || "Publicación de Instagram",
         link_foto: img.getAttribute('src')
       }));
     });
 
     if (data.length > 0) {
         fs.writeFileSync('datos_instagram.json', JSON.stringify(data, null, 2));
-        console.log("¡Éxito! Se generó 'datos_instagram.json'");
+        console.log("¡POR FIN! Se generó 'datos_instagram.json'");
         console.table(data);
     } else {
-        console.log("Se cargó la página pero no se encontraron posts.");
+        console.log("No se detectaron fotos de posts. Intenta refrescar tu state.json");
     }
 
   } catch (err) {
-    console.error("Error durante el scraping:", err.message);
-    // Si falla por timeout, igual intentamos sacar lo que haya cargado
-    console.log("Intentando rescatar datos de lo que cargó...");
+    console.error("Error:", err.message);
   } finally {
-    setTimeout(async () => {
-        await browser.close();
-    }, 3000);
+    setTimeout(async () => { await browser.close(); }, 3000);
   }
 }
 
