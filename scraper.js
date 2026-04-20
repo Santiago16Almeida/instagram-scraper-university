@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 async function scrapeInstagram(perfil) {
   // Cargamos el navegador usando el estado guardado
   const browser = await chromium.launch({ headless: true }); 
-  const context = await browser.newcontext({ storageState: 'state.json' });
+  const context = await browser.newContext({ storageState: 'state.json' });
   const page = await context.newPage();
 
   console.log(`Navegando al perfil de: ${perfil}...`);
