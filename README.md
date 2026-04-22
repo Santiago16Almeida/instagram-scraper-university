@@ -6,7 +6,7 @@ Este proyecto es una herramienta de ingeniería de datos diseñada para la extra
 
 El sistema consta de un pipeline de tres etapas:
 1. **Extracción (Scraping):** Uso de **Playwright** para navegar de forma automatizada y extraer metadatos del perfil (seguidores, seguidos, publicaciones) y contenido multimedia.
-2. **Análisis de Datos:** Módulo que procesa las descripciones de las publicaciones, filtra *stop words* y genera un ranking de palabras clave.
+2. **Análisis de Datos:** Módulo que procesa las descripciones de las publicaciones, filtra *stop words* y genera un ranking de las 5 palabras clave.
 3. **Visualización:** Generador automático de reportes en **HTML5/CSS3** para presentar los resultados y no solo por consola.
 
 ##  Tecnologías Utilizadas
@@ -15,6 +15,8 @@ El sistema consta de un pipeline de tres etapas:
 * **Automatización de Navegador:** Playwright (Chromium)
 * **Lenguaje:** JavaScript (ES6+)
 * **Persistencia:** Archivos JSON para intercambio de datos.
+* **Librería Externa:** SheetJS, para exportación a Excel
+
 
 ##  Requisitos Previos
 
@@ -29,10 +31,10 @@ npm install playwright
 
 1. Extraer datos
 node scraper.js [nombre_de_usuario]
-2. Analizar palabras clave
-node analizador.js
-3. Generar reporte visual
+2. Generar reporte visual
 node generar_reporte.js
+3. Analizar palabras clave
+node analizador.js
 
 ## Estructura del Proyecto
 
