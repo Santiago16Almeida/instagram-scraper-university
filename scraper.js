@@ -25,7 +25,7 @@ async function scrapeInstagram(perfil) {
 
     await page.waitForTimeout(5000);
 
-    // Scroll suave
+    // Scroll suave hacia abajo para que muestre el contenido
     await page.mouse.wheel(0, 600);
     await page.waitForTimeout(3000);
 

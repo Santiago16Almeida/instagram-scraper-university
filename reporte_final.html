@@ -3,121 +3,191 @@
         <html lang="es">
         <head>
             <meta charset="UTF-8">
-            <title>Reporte: 221</title>
+            <title>Reporte de Ingeniería</title>
             <style>
-                body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #fafafa; margin: 0; padding: 20px; color: #262626; }
-                .header-perfil { max-width: 935px; margin: 0 auto 40px auto; padding: 20px; display: flex; flex-direction: column; align-items: center; border-bottom: 1px solid #dbdbdb; }
-                .stats-container { display: flex; gap: 40px; margin-top: 20px; }
-                .stat-item { text-align: center; }
-                .stat-value { font-weight: bold; font-size: 18px; display: block; }
-                .stat-label { color: #8e8e8e; font-size: 14px; }
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fafafa; margin: 0; padding: 20px; }
+                .header { text-align: center; padding: 40px 0; border-bottom: 1px solid #eee; }
+                .stats { display: flex; justify-content: center; gap: 50px; margin: 20px 0; }
+                .stat-box { text-align: center; }
+                .stat-num { display: block; font-weight: bold; font-size: 22px; }
+                .stat-text { color: #8e8e8e; font-size: 14px; }
                 
-                h1 { margin: 0; font-size: 28px; font-weight: 300; }
-                .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; max-width: 1000px; margin: 0 auto; }
-                .card { background: white; border: 1px solid #dbdbdb; width: 300px; overflow: hidden; }
-                .card img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.3s; }
-                .card img:hover { transform: scale(1.02); }
-                .card-content { padding: 12px; border-top: 1px solid #efefef; }
-                .description { font-size: 14px; line-height: 1.5; color: #262626; height: 60px; overflow: hidden; }
-                .footer { text-align: center; margin-top: 50px; font-size: 13px; color: #8e8e8e; border-top: 1px solid #dbdbdb; padding-top: 20px; }
+                /* Caja del Analizador corregida */
+                .analizador-box { 
+                    background: white; 
+                    border: 1px solid #dbdbdb; 
+                    border-radius: 15px; 
+                    padding: 30px; 
+                    margin: 30px auto; 
+                    max-width: 850px; 
+                    text-align: center;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                }
+                .tags-flex { 
+                    display: flex; 
+                    justify-content: center; 
+                    gap: 15px; 
+                    flex-wrap: wrap; 
+                    margin-top: 20px; 
+                }
+                .tag-chip { 
+                    background: linear-gradient(45deg, #0095f6, #0072b1);
+                    color: white; 
+                    padding: 10px 20px; 
+                    border-radius: 30px; 
+                    font-weight: bold; 
+                    font-size: 15px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                }
+                .tag-num { 
+                    background: rgba(255,255,255,0.3); 
+                    padding: 2px 8px; 
+                    border-radius: 10px; 
+                    margin-left: 8px; 
+                    font-size: 12px; 
+                }
+
+                .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; max-width: 1100px; margin: 40px auto; }
+                .post-card { background: white; border: 1px solid #dbdbdb; border-radius: 4px; overflow: hidden; }
+                .post-card img { width: 100%; height: 300px; object-fit: cover; }
+                .post-info { padding: 15px; font-size: 14px; line-height: 1.4; }
+                .footer { text-align: center; padding: 40px; color: #8e8e8e; font-size: 12px; border-top: 1px solid #eee; }
             </style>
         </head>
         <body>
-            <div class="header-perfil">
-                <h1>Reporte de Datos Extraídos</h1>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <span class="stat-value">221</span>
-                        <span class="stat-label">Publicaciones</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">10,6 mil</span>
-                        <span class="stat-label">Seguidores</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">733</span>
-                        <span class="stat-label">Seguidos</span>
-                    </div>
+            <div class="header">
+                <h1 style="font-size: 36px; margin: 0;">Reporte de Datos Extraídos</h1>
+                <div class="stats">
+                    <div class="stat-box"><span class="stat-num">222</span><span class="stat-text">Publicaciones</span></div>
+                    <div class="stat-box"><span class="stat-num">10,6 mil</span><span class="stat-text">Seguidores</span></div>
+                    <div class="stat-box"><span class="stat-num">732</span><span class="stat-text">Seguidos</span></div>
                 </div>
             </div>
 
-            <div class="container">
-        
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.82787-15/608019099_18542025814042095_9181246266493999581_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzc5OTc3MzM4NjA3NTMyMDIwNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=9Brd6IBHhKAQ7kNvwGMNNIZ&_nc_oc=Adp0NS0QsMfIURK4mgsn6904Jx9dp9wZQo4yLyS3oJPACUkmOpYqjN1Z0WJLHRK8JEU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af2CTDr9BxDYx9PbTAs2NB-5ZGWfOQzraStECXPNTi5Rcw&oe=69EC574A" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #1:</b> Mientras uno esté vivo … 🍂</p>
-                    </div>
+            <div class="analizador-box">
+                <span style="color: #666; font-weight: bold; letter-spacing: 1px;"> TOP 5 PALABRAS CLAVE</span>
+                <div class="tags-flex">
+                    
+                            <div class="tag-chip">
+                                <span style="color: #FFD700; font-weight: 900; margin-right: 5px;">1.</span> 
+                                momento 
+                                <span class="tag-num">3</span>
+                            </div>
+                        
+                            <div class="tag-chip">
+                                <span style="color: #FFD700; font-weight: 900; margin-right: 5px;">2.</span> 
+                                photo 
+                                <span class="tag-num">2</span>
+                            </div>
+                        
+                            <div class="tag-chip">
+                                <span style="color: #FFD700; font-weight: 900; margin-right: 5px;">3.</span> 
+                                леонардо 
+                                <span class="tag-num">2</span>
+                            </div>
+                        
+                            <div class="tag-chip">
+                                <span style="color: #FFD700; font-weight: 900; margin-right: 5px;">4.</span> 
+                                👾💙 
+                                <span class="tag-num">2</span>
+                            </div>
+                        
+                            <div class="tag-chip">
+                                <span style="color: #FFD700; font-weight: 900; margin-right: 5px;">5.</span> 
+                                esperando 
+                                <span class="tag-num">2</span>
+                            </div>
+                        
                 </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.82787-15/576620985_18532880296042095_8402241477129323448_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc2MjEwNzIxNDAxOTU0NzU3Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzB4MTUzMi5zZHIuQzMifQ%3D%3D&_nc_ohc=il3nRL0UqJ4Q7kNvwHh7tLr&_nc_oc=AdpQkndFtDkOGh3JPIap6Z9k7Da-uZWWaaLihPZrOXKNRmHkaeyca6VUsHCaWi9Uiqc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af2vy-X1GKkoDHI-z7GDIOJLDLOB_nJpOfiyZc0g9bQRyw&oe=69EC23C8" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #2:</b> Esperando aquel momento que todos sabemos que no va a pasar ❤️‍🩹</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.82787-15/562710992_18526048468042095_5006131418177330203_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzc0MjA3NDMyMzk5ODQ1Mjc5NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkxOC5zZHIuQzMifQ%3D%3D&_nc_ohc=0zhplKb9npMQ7kNvwEPYXaM&_nc_oc=Adp8CSZowXnAaXYqbYlbEDXJwGJWG0Gztv_KyNMUDYalNc6G2g2CVZCxAFf-1u-8tmk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af1M4CPlP-t8dMt6w85Rj9DmK2vGxXH17Nhi5UPbBvft5g&oe=69EC3D18" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #3:</b> Photo by Леонардо 👾💙 on October 12, 2025.</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.82787-15/545356143_18520087318042095_5049569820578495842_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzcyMDg2NDY5Nzg2NDQzNjA0NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkxNy5zZHIuQzMifQ%3D%3D&_nc_ohc=Zs46PIfGcZ8Q7kNvwHQnDzg&_nc_oc=Adr0fTHlM1QdbwBhBG0GU7-eFn57n93N2qq1kJDQfajERagYkw_XfwhvDt7x7GIYS6E&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af3fX5mfRpNUcPIi9lLZZNgTS7WC6FyEEf5UolGHgKp1aQ&oe=69EC23A8" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #4:</b> Te quede muy grande … 💨</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.82787-15/503566736_18506012821042095_855735091887681513_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzY2NDI0NzQ4MTUxMjg4OTQ1MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzB4MTQ2Mi5zZHIuQzMifQ%3D%3D&_nc_ohc=sxEjtHy6_-AQ7kNvwGTghz4&_nc_oc=AdrfQ2uRWCWkbIeakwEFc3ULMCWM1lS_0nm6k82sp-fZvpZKD5t9ls30Kjv4JpyoWVY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af00SufS7anSuo4FRZBwMjajJ8jAFulDiDfN8-4RONaimA&oe=69EC5500" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #5:</b> Volvamos aquellos tiempos … 💔</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.82787-15/655589162_18097271875989580_7301827490230728042_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzU0NDMyMDIzMzMzNTQyODQxOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=ZjnXpWZqwPAQ7kNvwFjOqMS&_nc_oc=AdqNOSW9nvnEqjs-M3QQKB5lugghEX7D0FCeyzBvJYEBGDbBkhICtTeR55jTryzqajw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af21y-J8o_tyPZlMfTYZznPIpUv6cQYWu8G8QRQGkKXOMw&oe=69EC31D6" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #6:</b> Somos tan incrédulos de pensar de que pasará en algún momento … ♥️</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t51.75761-15/467453682_18464895403042095_374906419808831383_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzUwNzAwNzA0MzM5OTkwODI1OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjgwMXg2ODYuc2RyLkMzIn0%3D&_nc_ohc=Uv3EC1PXnKIQ7kNvwHN0mXr&_nc_oc=Adqevc0IjKVA77R3RBf2_vvNEzX8qUz9eKJGFZVSGaj9C8IYD-uKICtsddfyT8FDJ3s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af234Rad48xB2uBp51b1mv1th95-zV7TtNbEn4wscxJv4A&oe=69EC5036" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #7:</b> Esperando a que llegue el momento … 🍃</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t39.30808-6/460617399_18452351326042095_8865173588774588144_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MzQ2MDAzMDU5NTYwMTIyNDA4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=N7ADOMa1zikQ7kNvwFn_-c7&_nc_oc=Adrr43MzJBNTg2ktAC84p2lgNboWfXg5WEGZZpG3tSttIYMZN7bkJTSDs35KA_89cCA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af16rWrVc_dtDUyGDWSpyVlpMRpk4wGZhv0gulxFA99TEQ&oe=69EC4F8D" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #8:</b> De amor nadie se muere 💚</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t39.30808-6/469899246_18468356959042095_5708972602288003165_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MzI4MzcxNTQ1NTE5MjgyMjY5NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=Iuw6t2mibzAQ7kNvwGXzWOJ&_nc_oc=AdpaU0d4qYjh0QREQ7f8H1v3KAPoY7RUl9nCu1KGzuYIx6lRFb4uFZwOllLryhFvO8w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af287x3iXjUn_37FB13Fyuyh4wVAHYlm4ZJD89aQpNZfGQ&oe=69EC2674" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #9:</b> All eyes on me 🥱🩶</p>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <img src="https://instagram.fmec3-1.fna.fbcdn.net/v/t39.30808-6/414722237_18400336093042095_6358201147061130948_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=MzI2NzE3MzkxMTQ1NDY1Njg4MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=0gvtiLmB3NMQ7kNvwE6ukOB&_nc_oc=AdqmMyL890AFAJ_c33vsBTwcgI5DoxBdN_25ah68ZGmHFXEVaC8nAcVNgfRssTBwD1E&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmec3-1.fna&_nc_gid=lEzLWTQB4aKFxQXiuF__lQ&_nc_ss=7a32e&oh=00_Af1Q32RP7bXDTmeWpmDj5wlocNGnUJb8YqfTVuN0AuCVAQ&oe=69EC51FA" alt="Post">
-                    <div class="card-content">
-                        <p class="description"><b>Post #10:</b> Continuó atardecer ✨🩶</p>
-                    </div>
-                </div>
-            
             </div>
+
+            <div class="grid">
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/673129434_18573381343042095_7793519968149478121_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzg3OTc5NjIwMDkxNzIyMzMwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTQyNC5zZHIuQzMifQ%3D%3D&_nc_ohc=3m6HCWcBKDEQ7kNvwEPLw6P&_nc_oc=Adrga0IJo5xPeP4fnDXeJ76HI5Sg3Ak-y4UQzIjziWBbzZeE4cVjjzLipAjeM7i9-bA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af1VITYSe7bsVqjPdLCHXRCQuGHNQx7onsZgSYrwGY5jFA&oe=69EEC071">
+                        <div class="post-info">
+                            <b>Post #1</b><br>
+                            Photo by Леонардо 👾💙 on April 20, 2026. May be a selfie of one or more people, hair, phone, mirror and text....
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/608019099_18542025814042095_9181246266493999581_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzc5OTc3MzM4NjA3NTMyMDIwNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=9Brd6IBHhKAQ7kNvwFm0p7K&_nc_oc=AdqqXjBn1ejRHKL5t5FCx5ZO57o8Bcaz9ccaTZIAK3hffMnnVOg4Rq7YjJ48gB6yhuk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af2Jer8oUF9uiIaXoTGCmJwwa0Fy6SZwnqbda6QdiLtTDw&oe=69EEC20A">
+                        <div class="post-info">
+                            <b>Post #2</b><br>
+                            Mientras uno esté vivo … 🍂...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/576620985_18532880296042095_8402241477129323448_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc2MjEwNzIxNDAxOTU0NzU3Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzB4MTUzMi5zZHIuQzMifQ%3D%3D&_nc_ohc=R6MPgdp1GfgQ7kNvwHsAGI6&_nc_oc=AdpL1Qk-JwR3b8v-8hU4JTSO83HsRIsX4VFa2ZwMgP5aw4A5MdmRnfKYoGmopHI-G9s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af38xe4KV8hacZxud4eZoJfex9o4YEAEJ3S4MoA5F8B6Dg&oe=69EEC6C8">
+                        <div class="post-info">
+                            <b>Post #3</b><br>
+                            Esperando aquel momento que todos sabemos que no va a pasar ❤️‍🩹...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/562710992_18526048468042095_5006131418177330203_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzc0MjA3NDMyMzk5ODQ1Mjc5NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkxOC5zZHIuQzMifQ%3D%3D&_nc_ohc=0zhplKb9npMQ7kNvwF-rAnD&_nc_oc=AdpTT6kmAmDo6wa7CCjFKx1hr4uiX0wAXrR-mxsFjSStyHLIuWHFNh9mUk8_bq-WjcU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af1H_GwaSCNeNlh6HAXCZbJK9ylWQS2UyK-tkQknVtGIZg&oe=69EEA7D8">
+                        <div class="post-info">
+                            <b>Post #4</b><br>
+                            Photo by Леонардо 👾💙 on October 12, 2025....
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/545356143_18520087318042095_5049569820578495842_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzcyMDg2NDY5Nzg2NDQzNjA0NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkxNy5zZHIuQzMifQ%3D%3D&_nc_ohc=Zs46PIfGcZ8Q7kNvwELhPIS&_nc_oc=Adrvy54kJeLCYw1XGCRJ0pa6BZXGIDGALUh3dGUd3Bz1A_rnVr22OqWgERbuLI9PYA0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af3qvYEmpYKNeF4pFxOticVO8Za1XZoziiAQ0SSnsFGdOQ&oe=69EEC6A8">
+                        <div class="post-info">
+                            <b>Post #5</b><br>
+                            Te quede muy grande … 💨...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/503566736_18506012821042095_855735091887681513_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzY2NDI0NzQ4MTUxMjg4OTQ1MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzB4MTQ2Mi5zZHIuQzMifQ%3D%3D&_nc_ohc=sxEjtHy6_-AQ7kNvwH7zjJb&_nc_oc=Adq4BfMwYENdKqwIZkGok6y2ZdI6I234ZOBOW3NitgYvjGEgkdleGn7PSDjJFDp1Mhk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af3I57la_6iZsSPWyV0x0qjDWsf4swsd5dkiKfLsE_q02A&oe=69EEBFC0">
+                        <div class="post-info">
+                            <b>Post #6</b><br>
+                            Volvamos aquellos tiempos … 💔...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.82787-15/655589162_18097271875989580_7301827490230728042_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzU0NDMyMDIzMzMzNTQyODQxOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=4Iu93SqjL50Q7kNvwGCHB0w&_nc_oc=AdqVMdjLuM8AUXBNlytcVZHo5pg-CtH5AgAfSOXbsJu4z7pNR5uIWeTWdZZBQQCbVzo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a22e&oh=00_Af2uiJAOnzmrHqAPwjIxN03BZIQVGFhzlgM-Z-8TJIhW5A&oe=69EED4D6">
+                        <div class="post-info">
+                            <b>Post #7</b><br>
+                            Somos tan incrédulos de pensar de que pasará en algún momento … ♥️...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t51.75761-15/467453682_18464895403042095_374906419808831383_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=MzUwNzAwNzA0MzM5OTkwODI1OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjgwMXg2ODYuc2RyLkMzIn0%3D&_nc_ohc=r-9FCqfjRMUQ7kNvwFR3U_4&_nc_oc=AdqqgyQ4vVxIBhb8jVSgD932FTT2XvXi_AAwQFMx7cQ0QIT7LlsHCY8xhSZ7WY3DE90&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af0ArCaoNWr8lh5vOXwWvXmGyznMgu7IQp0DvY4ozF7P6A&oe=69EEBAF6">
+                        <div class="post-info">
+                            <b>Post #8</b><br>
+                            Esperando a que llegue el momento … 🍃...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t39.30808-6/460617399_18452351326042095_8865173588774588144_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MzQ2MDAzMDU5NTYwMTIyNDA4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=N7ADOMa1zikQ7kNvwGOZIv8&_nc_oc=Adp3J4wAttj_25k96xnENkY6pj4mp88A73r-_CSUn1QHcz_6Phy_jqQhOcoLcsV-LZk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af1nU_krzZb_aL2kXDk1wt7aomFXDPL4B6L2B5tyibT5bg&oe=69EEBA4D">
+                        <div class="post-info">
+                            <b>Post #9</b><br>
+                            De amor nadie se muere 💚...
+                        </div>
+                    </div>
+                
+                    <div class="post-card">
+                        <img src="https://instagram.fuio13-1.fna.fbcdn.net/v/t39.30808-6/469899246_18468356959042095_5708972602288003165_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MzI4MzcxNTQ1NTE5MjgyMjY5NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=Iuw6t2mibzAQ7kNvwF0tuj8&_nc_oc=AdoVq4AKOHO-wvxP3HN5i0vPlnFauaTXL0kxIYBSkE0VQifs1fqSofd7LELcxKmQCFk&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fuio13-1.fna&_nc_gid=cH7MLwNf8dy0KCOwfr2reg&_nc_ss=7a32e&oh=00_Af23UBNnPEHBy4bEn8lt_f2a7V9qX_TOMUhUQuTE6S4gzg&oe=69EEC974">
+                        <div class="post-info">
+                            <b>Post #10</b><br>
+                            All eyes on me 🥱🩶...
+                        </div>
+                    </div>
+                
+            </div>
+
             <div class="footer">
-                <p><b>Ingeniería de Datos - UCE</b></p>
-                <p>Desarrollado por: Santiago Agustín Almeida Auqui</p>
+                <p><b>FACULTAD DE INGENIERÍA - UCE</b></p>
+                <p>Proyecto desarrollado por: Santiago Agustín Almeida Auqui</p>
             </div>
         </body>
         </html>
-        
