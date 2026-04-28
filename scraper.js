@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { chromium } = require('playwright');
 const fs = require('fs');
 
@@ -14,6 +15,16 @@ async function scrapeInstagram(perfil) {
     }
 
     console.log(`\n Navegando al perfil de: ${perfil}...`);
+
+    page.on('response', async (response) => {
+      // Detectamos la llamada a la API de perfil de Instagram
+      if (response.url().includes('web_profile_info')) {
+        try {
+          const json = await response.json();
+          console.log(" [ANÁLISIS] Solicitud detectada: Datos obtenidos de la API interna.");
+        } catch (e) { /* error de parseo */ }
+      }
+    });
 
     await page.goto(`https://www.instagram.com/${perfil}/`, {
       waitUntil: 'domcontentloaded',
@@ -78,7 +89,16 @@ async function scrapeInstagram(perfil) {
       console.log(" Proceso terminado.");
     }, 2000);
   }
+
+  const delay = (ms) => new Promise(res => setTimeout(res, ms + Math.random() * 3000));
+  await delay(5000);
 }
 
-const cuentaAInvestigar = process.argv[2];
-scrapeInstagram(cuentaAInvestigar);
+const cuentaAInvestigar = process.argv[2] || process.env.TARGET_USER;
+
+if (!cuentaAInvestigar) {
+  console.log(" Error: No se encontró un usuario en la terminal ni en el archivo .env");
+} else {
+  console.log(` Iniciando búsqueda para el usuario: ${cuentaAInvestigar}`);
+  scrapeInstagram(cuentaAInvestigar);
+}
